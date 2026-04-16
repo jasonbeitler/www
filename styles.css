@@ -1,16 +1,31 @@
+/* === CSS Custom Properties === */
+:root {
+	--color-primary: #990000;
+	--color-primary-dark: #800000;
+	--color-primary-darker: #660000;
+	--color-bg: #000;
+	--color-container: #222;
+	--color-container-dark: #111;
+	--color-border: #333;
+	--color-text-body: #666;
+	--color-text-muted: #999;
+	--color-text-light: #ccc;
+	--color-text-white: #fff;
+}
+
 body {
-	background: #000;
-	margin:0;
-	padding:0;
-	font-family: 'Open Sans', 'sans-serif';
+	background: var(--color-bg);
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', system-ui, sans-serif;
 	font-size: 1.0em;
-	color: #666;
+	color: var(--color-text-body);
 	font-weight: 200;
 }
 
 * {
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 
 /** element defaults **/
@@ -24,12 +39,12 @@ th, td {
 }
 
 th {
-	color: #fff;
-	background: #990000 none repeat-x scroll left top;
+	color: var(--color-text-white);
+	background: var(--color-primary);
 }
 
 td {
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid var(--color-border);
 }
 
 code, blockquote {
@@ -37,18 +52,18 @@ code, blockquote {
 	border-left: 5px solid #ccc;
 	padding: 10px;
 	margin-bottom: 20px;
-	color: #ccc;
+	color: var(--color-text-light);
 }
+
 code {
-	background-color: #222;
+	background-color: var(--color-container);
 }
 
 blockquote p {
 	font-style: italic;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	margin: 0;
-	color: #ccc;
-	height: 1%;
+	color: var(--color-text-light);
 }
 
 p {
@@ -56,49 +71,48 @@ p {
 	margin-bottom: 20px;
 }
 
-a, 
+a,
 .sidebar li ul li a.readmore {
-	color: #999;
+	color: var(--color-text-muted);
 }
 
 a:hover,
 .sidebar li ul li a.readmore:hover {
-	color: #990000;
+	color: var(--color-primary);
 }
 
 a:focus {
-	outline: none;
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
 }
 
-
-a.button { 
-    background-color: #990000;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 8px 15px;
-    text-decoration: none;
-    text-transform: uppercase;
+a.button {
+	background-color: var(--color-primary);
+	border-radius: 5px;
+	color: var(--color-text-white);
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 8px 15px;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 a.button:hover {
-	background-color: #800000;
+	background-color: var(--color-primary-dark);
 }
-
 
 fieldset {
 	display: block;
 	border: none;
-	border-top: 1px solid #333;
+	border-top: 1px solid var(--color-border);
 }
 
 fieldset legend {
 	font-weight: bold;
 	font-size: 13px;
 	padding-right: 10px;
-	color: #999;
+	color: var(--color-text-muted);
 }
 
 fieldset form {
@@ -115,12 +129,12 @@ span.required {
 }
 
 h1 {
-	color: #ccc;
+	color: var(--color-text-light);
 	font-size: 2.0em;
 }
 
 h2 {
-	color: #ccc;
+	color: var(--color-text-light);
 	font-size: 1.8em;
 	letter-spacing: 0px;
 	font-weight: normal;
@@ -129,7 +143,7 @@ h2 {
 }
 
 h3 {
-	color: #990000;
+	color: var(--color-primary);
 	font-size: 1.6em;
 	font-weight: normal;
 	margin-bottom: 10px;
@@ -137,16 +151,16 @@ h3 {
 }
 
 h4 {
-    color: #fff;
-    font-size: 1.4em;
-    font-weight: normal;
-    padding-bottom: 10px;
+	color: var(--color-text-white);
+	font-size: 1.4em;
+	font-weight: normal;
+	padding-bottom: 10px;
 }
 
 h5 {
 	padding-bottom: 10px;
 	font-size: 1.2em;
-	color: #999;
+	color: var(--color-text-muted);
 }
 
 ul, ol {
@@ -164,42 +178,44 @@ li ol, li ul {
 }
 
 .width {
-	width: 940px;
+	max-width: 940px;
+	width: 100%;
 	margin: 0 auto;
 }
 
 #container {
-	background-color: #222;
-	width: 980px;
-	border-left: 30px solid #111;
-	border-right: 30px solid #111;
+	background-color: var(--color-container);
+	max-width: 980px;
+	width: 100%;
+	border-left: 30px solid var(--color-container-dark);
+	border-right: 30px solid var(--color-container-dark);
 	margin: 0 auto;
+	box-sizing: border-box;
 }
 
 header {
 	padding: 40px 20px;
-	background-color: #111111;
+	background-color: var(--color-container-dark);
 	margin: 0 auto;
-	text-align:left;
+	text-align: left;
 }
 
 header h1 a, header h1 a:hover {
- color: #919191;
-    font-size: 1.4em;
+	color: #919191;
+	font-size: 1.4em;
 	padding: 10px;
-    font-weight: normal;
-    letter-spacing: -2px;
-    line-height:1.2em;
-    text-decoration: none;
-    text-transform: lowercase;
+	font-weight: normal;
+	letter-spacing: -2px;
+	line-height: 1.2em;
+	text-decoration: none;
+	text-transform: lowercase;
 }
-
 
 nav {
 	border-top: 1px solid #B30000;
 	border-bottom: 1px solid #B30000;
 	height: 45px;
-	background-color: #990000;
+	background-color: var(--color-primary);
 }
 
 nav ul {
@@ -214,84 +230,89 @@ nav ul li {
 	padding: 0;
 }
 
-
 nav ul li a {
-    color: #ccc;
-    display: block;
-    font-size: 0.85em;
-    letter-spacing: 0;
+	color: var(--color-text-light);
+	display: block;
+	font-size: 0.85em;
+	letter-spacing: 0;
 	margin: 5px 3px 0;
 	font-weight: normal;
-    padding: 8px 10px 8px;
-    text-decoration: none;
-}
-nav ul li.selected a,
-nav ul li.selected a:hover { 
-	color: #fff;
-	background-color: #800000;
-	font-weight:bold;
-	box-shadow: -1px 1px 0 #660000;
-}
-
-
-nav ul li a:hover {
-	color: #fff;
+	padding: 8px 10px 8px;
 	text-decoration: none;
 }
 
-img.header-image { padding-top: 10px;
-			margin-bottom: -3px; }
+nav ul li.selected a,
+nav ul li[aria-current="page"] a,
+nav ul li.selected a:hover,
+nav ul li[aria-current="page"] a:hover {
+	color: var(--color-text-white);
+	background-color: var(--color-primary-dark);
+	font-weight: bold;
+	box-shadow: -1px 1px 0 var(--color-primary-darker);
+}
+
+nav ul li a:hover {
+	color: var(--color-text-white);
+	text-decoration: none;
+}
+
+img.header-image {
+	padding-top: 10px;
+	margin-bottom: -3px;
+}
 
 #body {
 	background: none;
 	margin: 5px auto 0;
- 	padding: 0;
-	clear: both;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
 }
 
 #content {
-    float: right;
-    width: 71%;
+	flex: 1;
+	width: 71%;
 }
 
 article {
-    padding: 10px 5px 20px 10px;
- }
-
-article h2 { 
-    padding-bottom: 0;
-    font-size: 2.2em;
+	padding: 10px 5px 20px 10px;
 }
 
-article p, article ul, article ol { 
-    font-size: 0.9em;
+article h2 {
+	padding-bottom: 0;
+	font-size: 2.2em;
+}
+
+article p, article ul, article ol {
+	font-size: 0.9em;
 }
 
 article .article-info {
-    color: #666;
-    font-size: 12px;
-    font-style: italic;
-    padding: 0 0 10px 0;
+	color: var(--color-text-body);
+	font-size: 12px;
+	font-style: italic;
+	padding: 0 0 10px 0;
 }
 
-article .article-info a { 
-	color: #666;
+article .article-info a {
+	color: var(--color-text-body);
 }
 
 .sidebar {
-    float: left;
-    width: 28%;
+	width: 28%;
 	margin-top: 10px;
+	flex-shrink: 0;
 }
 
 .sidebar h4 {
 	padding-bottom: 0;
 	font-weight: 100;
-	color: #333;
+	color: var(--color-border);
 	font-size: 1.1em;
 	padding: 5px 10px;
 	background-color: #666666;
-	box-shadow:-2px 2px 0px #000;
+	box-shadow: -2px 2px 0px #000;
 }
 
 .sidebar ul {
@@ -306,8 +327,8 @@ article .article-info a {
 }
 
 .sidebar li ul {
-    list-style: none outside none;
-    margin: 0px;
+	list-style: none outside none;
+	margin: 0px;
 }
 
 .sidebar li ul li {
@@ -319,49 +340,43 @@ article .article-info a {
 	font-size: 0.8em;
 }
 
-.sidebar li ul li.text { 
+.sidebar li ul li.text {
 	border-bottom: none;
 }
 
-
-
 .sidebar li ul li a {
 	font-weight: normal;
-	color: #666;
+	color: var(--color-text-body);
 }
 
 .sidebar li ul li a:hover {
-	color: #999;
+	color: var(--color-text-muted);
 }
-
 
 .sidebar li ul li a.readmore {
-   font-weight: bold;
+	font-weight: bold;
 }
-
-
-
 
 .clear {
 	clear: both;
 }
 
 footer {
-	margin:20px auto 0;
-	background: #222;
-	border-top: 10px solid #800000;
+	margin: 20px auto 0;
+	background: var(--color-container);
+	border-top: 10px solid var(--color-primary-dark);
 }
 
 footer p {
 	text-align: left;
-	color: #ccc;
+	color: var(--color-text-light);
 	font-size: 12px;
 	margin: 0;
 	padding: 0;
 }
 
 footer p a {
-	color: #ccc;
+	color: var(--color-text-light);
 	font-weight: bold;
 }
 
@@ -381,78 +396,83 @@ footer .footer-content li {
 	padding: 5px 5px;
 }
 
-footer .footer-content li a, footer .footer-content h4 {
-}
-
 footer .footer-content li a {
- color: #505050;
-    font-size: 0.8em;
-    text-decoration: underline;
+	color: #505050;
+	font-size: 0.8em;
+	text-decoration: underline;
 }
 
-footer .footer-content li a:hover { 
+footer .footer-content li a:hover {
 	color: #909090;
 }
 
 footer .footer-content h4 {
-   color: #999;
-    font-size: 1.3em;
-    font-weight: bold;
-    padding-bottom: 0;
+	color: var(--color-text-muted);
+	font-size: 1.3em;
+	font-weight: bold;
+	padding-bottom: 0;
 }
 
 footer .footer-content ul.endfooter {
 	margin-right: 0;
 }
+
 footer .footer-bottom {
 	padding: 10px;
 	text-align: center;
-	background-color: #111111;
+	background-color: var(--color-container-dark);
 }
 
 footer .footer-bottom p {
 	text-align: center;
 }
 
-footer .footer-bottom p, footer .footer-bottom p a {
-	color: #666;
+footer .footer-bottom p,
+footer .footer-bottom p a {
+	color: var(--color-text-body);
 }
 
 
-
-
-
+/* === Responsive: tablet === */
 @media screen and (max-width: 740px) {
-
-	body { font-size: 0.8em; }	
+	body { font-size: 0.8em; }
 
 	header { padding: 10px; }
-	
+
 	header h1 { text-align: center; }
 
-	div#container { width: auto; }
+	#container {
+		border-left: none;
+		border-right: none;
+	}
 
 	footer .footer-content ul { margin-bottom: 15px; }
 
 	footer .footer-content ul.endfooter { margin-bottom: 0px; }
 
-	.width { width:auto; padding-left: 10px; padding-right: 10px; }
-	
-	#content, aside.sidebar { float: none; width: auto; }
+	.width { padding-left: 10px; padding-right: 10px; }
+
+	#body { flex-direction: column; }
+
+	#content, aside.sidebar { width: 100%; }
 
 	footer .footer-content ul { width: auto; float: none; }
 }
 
+/* === Responsive: mid (new breakpoint) === */
+@media screen and (max-width: 640px) {
+	#body { flex-direction: column; }
 
+	#content, .sidebar { width: 100%; }
+}
+
+/* === Responsive: mobile === */
 @media screen and (max-width: 540px) {
-
 	body { font-size: 0.8em; }
 
-	
-	nav ul li { float: none; text-align:center;  }
+	nav ul li { float: none; text-align: center; }
 
 	nav ul li a { margin-top: 0; }
 
 	nav { height: auto; position: relative; }
-
 }
